@@ -28,7 +28,7 @@ class LeadSource(models.Model):
         return self.source_lead
 
 class LeadFollowUp(models.Model):
-    lead = models.foreginkey('lead', on_delete=models.CASCADE, related_name="follow_ups")
+    lead = models.ForeignKey('lead', on_delete=models.CASCADE, related_name="follow_ups")
     note = models.TextField()
     follow_up_date = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)

@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'accounts',
     'leads',
     # 'rest_framework_simplejwt',
-    'drf_yasg',
+    # required for serving swagger ui's css/js files
+    'drf_spectacular',
 
 ]
 
@@ -144,5 +145,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     'DEFAULT_RENDERER_CLASSES': [
 #         'rest_framework.renderers.JSONRenderer',
 #         'rest_framework.renderers.BrowsableAPIRenderer'
+#         'DEFAULT_SCHEMA_CLASS' 'drf_spectacular.openapi.AutoSchema'
 #     ]
 # }
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your API Documentation',
+    'DESCRIPTION': 'This is an Account API documentation.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False
+}

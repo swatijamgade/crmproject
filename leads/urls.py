@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import LeadList, LeadDetail, LeadSourceListCreateView, LeadSourceDetail, LeadFollowUpAPI
+from .views import LeadList, LeadDetail, LeadSourceListCreateView, LeadSourceDetail, LeadFollowUpAPI, LeadAssignAPIView
 
 urlpatterns = [
     path('lead/', LeadList.as_view, name='lead-list'),
@@ -8,6 +8,7 @@ urlpatterns = [
     path('lead-source/<int:pk>/',LeadSourceDetail.as_view, name='lead-source-detail'),
     path('lead-followup/', LeadFollowUpAPI.as_view, name='lead-followup-list'),
     path('lead-followup<int:pk>/',LeadFollowUpAPI.as_view, name='lead-followup-detail'),
+    path('lead-assign/<int:pk>/', LeadAssignAPIView.as_view(), name='lead-assign-update'),
 
 
 ]
